@@ -1,6 +1,5 @@
-package lk.ijse.persistence_service.dto;
+package lk.ijse.payment_service.dto;
 
-import lk.ijse.persistence_service.entity.TicketEntity;
 import lombok.*;
 
 import java.io.Serializable;

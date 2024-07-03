@@ -30,7 +30,7 @@ public class CategoryService {
             if (!categoryRepository.existsByCategoryName(categoryDTO.getCategoryName())){
                 categoryRepository.save(CategoryEntity
                         .builder()
-                        .categoryName(categoryDTO.getCategoryName())
+                        .categoryName(categoryDTO.getCategoryName().toUpperCase())
                         .createBy(categoryDTO.getCreateBy())
                         .isActive(true)
                         .build());
