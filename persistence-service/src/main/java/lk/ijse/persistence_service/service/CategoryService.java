@@ -49,11 +49,15 @@ public class CategoryService {
             CategoryEntity categoryEntity = categoryRepository.findById(categoryDTO.getId()).orElse(null);
 
             if (categoryEntity != null) {
-                categoryEntity.setCategoryName(categoryDTO.getCategoryName());
-                categoryEntity.setModifyBy(categoryDTO.getModifyBy());
+                if (!categoryRepository.existsByCategoryName(categoryDTO.getCategoryName())){
+                    categoryEntity.setCategoryName(categoryDTO.getCategoryName());
+                    categoryEntity.setModifyBy(categoryDTO.getModifyBy());
 
-                categoryRepository.save(categoryEntity);
-                return new ResponseDTO("Category Updated Successfully", 200);
+                    categoryRepository.save(categoryEntity);
+                    return new ResponseDTO("Category Updated Successfully", 200);
+                }else {
+                    return new ResponseDTO("Category Already Exists", 400);
+                }
             } else {
                 return new ResponseDTO("Category Not Found", 404);
             }

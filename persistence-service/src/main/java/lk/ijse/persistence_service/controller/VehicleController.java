@@ -33,7 +33,7 @@ public class VehicleController {
     }
 
     @PostMapping("/dis/{id}")
-    public ResponseDTO disableVehicle(@RequestParam Long id) {
+    public ResponseDTO disableVehicle(@PathVariable Long id) {
         try {
             return vehicleService.disableVehicle(id);
         }catch (Exception e){
@@ -42,7 +42,7 @@ public class VehicleController {
     }
 
     @PostMapping("/en/{id}")
-    public ResponseDTO enableVehicle(@RequestParam Long id) {
+    public ResponseDTO enableVehicle(@PathVariable Long id) {
         try {
             return vehicleService.enableVehicle(id);
         }catch (Exception e){
@@ -60,7 +60,7 @@ public class VehicleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseDTO getVehicle(@RequestParam Long id) {
+    public ResponseDTO getVehicle(@PathVariable Long id) {
         try {
             return vehicleService.getVehicle(id);
         }catch (Exception e){

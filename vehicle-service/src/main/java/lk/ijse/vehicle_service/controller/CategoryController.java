@@ -31,21 +31,21 @@ public class CategoryController {
     }
 
     @PostMapping("/dis/{id}")
-    public ResponseDTO disableCategory(@RequestParam Long id) {
+    public ResponseDTO disableCategory(@PathVariable Long id) {
         return categoryService.disableCategory(id);
     }
 
     @PostMapping("/en/{id}")
-    public ResponseDTO enableCategory(@RequestParam Long id) {
+    public ResponseDTO enableCategory(@PathVariable Long id) {
         return categoryService.enableCategory(id);
     }
 
-    @PostMapping("/get/{id}")
-    public ResponseDTO getCategory(@RequestParam Long id) {
+    @GetMapping("/get/{id}")
+    public ResponseDTO getCategory(@PathVariable Long id) {
         return categoryService.getCategory(id);
     }
 
-    @PostMapping("/all")
+    @GetMapping("/all")
     public ResponseDTO getAllCategories() {
         return categoryService.getAllCategories();
     }

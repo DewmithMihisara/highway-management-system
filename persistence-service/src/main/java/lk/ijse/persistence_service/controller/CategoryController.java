@@ -34,7 +34,7 @@ public class CategoryController {
     }
 
     @PostMapping("/dis/{id}")
-    public ResponseDTO disableCategory(@RequestParam Long id) {
+    public ResponseDTO disableCategory(@PathVariable Long id) {
         try {
             return categoryService.disableCategory(id);
         }catch (Exception e){
@@ -43,7 +43,7 @@ public class CategoryController {
     }
 
     @PostMapping("/en/{id}")
-    public ResponseDTO enableCategory(@RequestParam Long id) {
+    public ResponseDTO enableCategory(@PathVariable Long id) {
         try {
             return categoryService.enableCategory(id);
         }catch (Exception e){
@@ -61,7 +61,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseDTO getCategory(@RequestParam Long id) {
+    public ResponseDTO getCategory(@PathVariable Long id) {
         try {
             return categoryService.getCategory(id);
         }catch (Exception e){

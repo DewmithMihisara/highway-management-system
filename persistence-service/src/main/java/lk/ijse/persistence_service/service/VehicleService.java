@@ -137,10 +137,10 @@ public class VehicleService {
                         .isActive(vehicleEntity.isActive())
                         .build())));
             } else {
-                return new ResponseDTO("Category Not Found", 404);
+                return new ResponseDTO("Vehicles Not Found", 404);
             }
         } catch (Exception e) {
-            return new ResponseDTO("Failed to Get Categories", 500);
+            return new ResponseDTO("Failed to Get Vehicles", 500);
         }
     }
 }
