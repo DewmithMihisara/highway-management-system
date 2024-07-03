@@ -19,6 +19,7 @@ import java.util.List;
 @Setter
 @ToString
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 @Entity
 @Table(name = "vehicle")

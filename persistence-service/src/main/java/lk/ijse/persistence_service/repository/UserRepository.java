@@ -1,5 +1,6 @@
 package lk.ijse.persistence_service.repository;
 
+import lk.ijse.persistence_service.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * @since 0.0.1
  */
 @Repository
-public interface UserRepository extends JpaRepository<UserRepository, Long> {
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 }
