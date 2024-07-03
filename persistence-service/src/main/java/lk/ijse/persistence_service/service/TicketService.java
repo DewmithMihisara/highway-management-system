@@ -83,7 +83,6 @@ public class TicketService {
     }
 
     public ResponseDTO getAllTickets() {
-        System.out.println("getAllTickets");
         try {
             return new ResponseDTO("All Tickets", 200, new HashMap<>(Map.of("tickets", ticketRepository.findAll().stream().map(ticketEntity -> TicketDTO
                     .builder()
@@ -91,9 +90,9 @@ public class TicketService {
                     .issueDate(ticketEntity.getIssueDate())
                     .issueLocation(ticketEntity.getIssueLocation())
                     .issueTime(ticketEntity.getIssueTime().toString())
-                    .arrivalDate(ticketEntity.getArrivalDate())
-                    .arrivalLocation(ticketEntity.getArrivalLocation())
-                    .arrivalTime(ticketEntity.getArrivalTime().toString())
+                    .arrivalDate(ticketEntity.getArrivalDate() != null ? ticketEntity.getArrivalDate() : null)
+                    .arrivalLocation(ticketEntity.getArrivalLocation() != null ? ticketEntity.getArrivalLocation() : null)
+                    .arrivalTime(ticketEntity.getArrivalTime() != null ? ticketEntity.getArrivalTime().toString() : null)
                     .status(ticketEntity.getStatus())
                     .userId(ticketEntity.getUserEntity().getId())
                     .vehicleId(ticketEntity.getVehicleEntity().getId())
@@ -102,12 +101,12 @@ public class TicketService {
                     .isActive(ticketEntity.isActive())
                     .build()).toList())));
         }catch (Exception e){
+            e.printStackTrace();
             return new ResponseDTO("Failed to Get All Tickets", 500);
         }
     }
 
     public ResponseDTO getTicket(Long id) {
-        System.out.println("getTicket");
         try {
             TicketEntity ticketEntity = ticketRepository.findById(id).orElse(null);
             if (ticketEntity != null){
@@ -116,9 +115,9 @@ public class TicketService {
                         .issueDate(ticketEntity.getIssueDate())
                         .issueLocation(ticketEntity.getIssueLocation())
                         .issueTime(ticketEntity.getIssueTime().toString())
-                        .arrivalDate(ticketEntity.getArrivalDate())
-                        .arrivalLocation(ticketEntity.getArrivalLocation())
-                        .arrivalTime(ticketEntity.getArrivalTime().toString())
+                        .arrivalDate(ticketEntity.getArrivalDate() != null ? ticketEntity.getArrivalDate() : null)
+                        .arrivalLocation(ticketEntity.getArrivalLocation() != null ? ticketEntity.getArrivalLocation() : null)
+                        .arrivalTime(ticketEntity.getArrivalTime() != null ? ticketEntity.getArrivalTime().toString() : null)
                         .status(ticketEntity.getStatus())
                         .userId(ticketEntity.getUserEntity().getId())
                         .vehicleId(ticketEntity.getVehicleEntity().getId())
@@ -135,7 +134,6 @@ public class TicketService {
     }
 
     public ResponseDTO getTicketByStatus(String status) {
-        System.out.println("getTicketByStatus");
         try {
             return new ResponseDTO("Tickets", 200, new HashMap<>(Map.of("tickets", ticketRepository.findByStatus(status).stream().map(ticketEntity -> TicketDTO
                     .builder()
@@ -143,9 +141,9 @@ public class TicketService {
                     .issueDate(ticketEntity.getIssueDate())
                     .issueLocation(ticketEntity.getIssueLocation())
                     .issueTime(ticketEntity.getIssueTime().toString())
-                    .arrivalDate(ticketEntity.getArrivalDate())
-                    .arrivalLocation(ticketEntity.getArrivalLocation())
-                    .arrivalTime(ticketEntity.getArrivalTime().toString())
+                    .arrivalDate(ticketEntity.getArrivalDate() != null ? ticketEntity.getArrivalDate() : null)
+                    .arrivalLocation(ticketEntity.getArrivalLocation() != null ? ticketEntity.getArrivalLocation() : null)
+                    .arrivalTime(ticketEntity.getArrivalTime() != null ? ticketEntity.getArrivalTime().toString() : null)
                     .status(ticketEntity.getStatus())
                     .userId(ticketEntity.getUserEntity().getId())
                     .vehicleId(ticketEntity.getVehicleEntity().getId())

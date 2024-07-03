@@ -50,7 +50,6 @@ public class TicketController {
 
     @GetMapping("/get/{id}")
     public ResponseDTO getTicket(@PathVariable Long id) {
-        System.out.println("persistance service get ticket by id");
         try {
             return ticketService.getTicket(id);
         }catch (Exception e){
