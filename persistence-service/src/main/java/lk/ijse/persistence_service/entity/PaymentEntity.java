@@ -30,7 +30,7 @@ public class PaymentEntity implements Serializable {
     private String cashierName;
 
     @Column(name = "cashier_id")
-    private String cashierId;
+    private Long cashierId;
 
     @Column(name = "charge_per_km")
     private double chargePerKm;
