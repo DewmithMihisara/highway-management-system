@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: 8084
 
 spring:
   application:
-    name: user-service
+    name: ticket-service
 
 eureka:
   client:
