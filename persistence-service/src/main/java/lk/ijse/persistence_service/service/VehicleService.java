@@ -38,7 +38,7 @@ public class VehicleService {
                     .vehicleModel(vehicleDTO.getVehicleModel())
                     .categoryEntity(categoryRepository.findById(vehicleDTO.getCategoryId()).get())
                     .createBy(vehicleDTO.getCreateBy())
-                    .isActive(vehicleDTO.isActive())
+                    .isActive(true)
                     .build());
 
             return new ResponseDTO("Vehicle Saved Successfully", 200);

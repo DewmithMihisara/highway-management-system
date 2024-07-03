@@ -28,13 +28,17 @@ public class CategoryService {
 
     public ResponseDTO saveCategory(CategoryDTO categoryDTO) {
         try {
-            categoryRepository.save(CategoryEntity
-                    .builder()
-                    .categoryName(categoryDTO.getCategoryName())
-                    .createBy(categoryDTO.getCreateBy())
-                    .isActive(categoryDTO.isActive())
-                    .build());
-            return new ResponseDTO("Category Saved Successfully", 200);
+            if (!categoryRepository.existsByCategoryName(categoryDTO.getCategoryName())){
+                categoryRepository.save(CategoryEntity
+                        .builder()
+                        .categoryName(categoryDTO.getCategoryName())
+                        .createBy(categoryDTO.getCreateBy())
+                        .isActive(true)
+                        .build());
+                return new ResponseDTO("Category Saved Successfully", 200);
+            }else {
+                return new ResponseDTO("Category Already Exists", 400);
+            }
         }catch (Exception e){
             return new ResponseDTO("Failed to Save Category", 500);
         }
